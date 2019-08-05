@@ -1,56 +1,47 @@
 <!doctype html>
-<title>CSS Grid Template 1</title>
+<title>Example</title>
 <style>
-body { 
-  display: grid;
-  grid-template-areas: 
-    "header header header"
-    "nav article ads"
-    "nav footer footer";
-  grid-template-rows: 80px 1fr 70px;  
-  grid-template-columns: 20% 1fr 15%;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
-  height: 100vh;
-  margin: 0;
-  }  
-header, footer, article, nav, div {
-  padding: 1.2em;
-  background: gold;
+  * {
+    box-sizing: border-box; 
   }
-#pageHeader {
-  grid-area: header;
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+    margin: 0;
   }
-#pageFooter {
-  grid-area: footer;
+  .col-1 {
+    background: #D7E8D4;
+    flex: 1;
   }
-#mainArticle { 
-  grid-area: article;      
+  .col-2 {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
   }
-#mainNav { 
-  grid-area: nav; 
+  .content {
+    display: flex;
+    flex-direction: row;
   }
-#siteAds { 
-  grid-area: ads; 
-  } 
-/* Stack the layout on small devices/viewports. */
-@media all and (max-width: 575px) {
-  body { 
-    grid-template-areas: 
-      "header"
-      "article"
-      "ads"
-      "nav"
-      "footer";
-    grid-template-rows: 80px 1fr 70px 1fr 70px;  
-    grid-template-columns: 1fr;
- }
-}
+  .content > article {
+    flex: 4;
+    min-height: 60vh;
+  }
+  header, footer {
+    background: yellowgreen;
+    height: 20vh;
+  }
+  header, footer, article, nav {
+    padding: 1em;
+  }
 </style>
 <body>
-  <header id="pageHeader">Header</header>
-  <article id="mainArticle">Article</article>
-  <nav id="mainNav">Nav</nav>
-  <div id="siteAds">Ads</div>
-  <footer id="pageFooter">Footer</footer>
+  <nav class="col-1">Nav</nav>
+  <div class="col-2">
+  	<header>Header</header>
+    <main class="content">
+    <article>Article</article>
+    </main>
+  	<footer>Footer</footer>
+  </div>
 </body>
